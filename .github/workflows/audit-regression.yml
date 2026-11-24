@@ -1,0 +1,14 @@
+name: C++ prototype tests
+on:
+  push:
+    branches: [audit-improvements-20261124]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: g++ -std=c++20 -Wall -Wextra -Werror -pedantic tests/test_watchdog.cpp -o watchdog_test
+      - run: ./watchdog_test
