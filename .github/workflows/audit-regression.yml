@@ -1,7 +1,7 @@
 name: C++ prototype tests
 on:
   push:
-    branches: [audit-improvements-20261124]
+    branches: [Main]
   pull_request:
 permissions:
   contents: read
