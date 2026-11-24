@@ -1,7 +1,7 @@
-#include 
+#include <benchmark/benchmark.h>
 #include "../include/fsd_watchdog.hpp"
 
-static void BM_TripleTriggerEvaluation_FullEval(benchmark::State& state) {
+static void BM_TwoThresholdEvaluation(benchmark::State& state) {
     tesla::edge::PreCausalWatchdog<150> watchdog(0.85f, 15.0f, 3);
     uint64_t ts = 1000000;
     
@@ -10,6 +10,6 @@ static void BM_TripleTriggerEvaluation_FullEval(benchmark::State& state) {
         benchmark::DoNotOptimize(triggered);
     }
 }
-BENCHMARK(BM_TripleTriggerEvaluation_FullEval);
+BENCHMARK(BM_TwoThresholdEvaluation);
 
 BENCHMARK_MAIN();
